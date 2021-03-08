@@ -23,7 +23,8 @@ int main()
         printf("\n");
     }*/
 
-    partition(&a[0][0], &ans[0][0], m, n);
+    int temp = partition(&a[0][0], &ans[0][0], m, n);
+
     /*partition(&a[0][0], &test[0], m, n);
     for (int i = 0; i < 4; i++)
     {
@@ -59,4 +60,5 @@ int main()
         }
         printf("\n");
     }
+    printf("%d", temp);
 }
