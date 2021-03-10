@@ -13,20 +13,14 @@ partition:
             movq %r8  , %r11 # (index = i )
             imulq %rcx , %r11 # (index = i * n)
             addq %r9  , %r11 # (index = i*n + j)
-            imulq $8, %r11
-            addq %rdi, %r11
-            movq (%r11) , %rax
+            movq (%rdi, %r11, 8) , %rax
         
 
          # acessing &ans[j][i] final adress in %r10 (index1)
             movq %r9  , %r10 # (index1 = j )
             imulq %rdx , %r10 # (index1 = j * m)
             addq %r8  , %r10 # (index1 = j*m + i)
-            imulq $8, %r10
-            addq %rsi, %r10
-            movq %rax, (%r10)
-
-            
+            movq %rax , (%rsi, %r10, 8)
 
         # checking condition for j loop
             inc %r9
